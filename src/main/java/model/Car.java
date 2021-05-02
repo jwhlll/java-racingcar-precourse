@@ -10,7 +10,7 @@ public class Car {
 
     public Car(String name) {
         if(name.length() > MAX_RANDOM_LENGTH){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("자동차 이름은 5글자 이하만 가능합니다.");
         }
         this.name = name;
         position = 0;
@@ -26,19 +26,12 @@ public class Car {
 
     public void run() {
         int randomValue = randomValue();
-        if(isRun(randomValue)) {
+        if(randomValue > RUN_CONDITION) {
             this.position++;
         }
     }
 
     private int randomValue() {
         return (int)(Math.random()*MAX_RANDOM_NUMBER);
-    }
-
-    private boolean isRun(int randomValue) {
-        if(randomValue > RUN_CONDITION) {
-            return false;
-        }
-        return true;
     }
 }

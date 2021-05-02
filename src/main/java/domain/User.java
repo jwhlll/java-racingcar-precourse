@@ -1,19 +1,26 @@
 package domain;
 
+import model.Cars;
 import view.RacingCarView;
 
 import java.util.InputMismatchException;
 
 public class User {
 
-    public static int userTryNumberInput() {
-        int tryNumber;
+    public static Cars userCarsInput() {
         try {
-            tryNumber = RacingCarView.inputTryNumber();
-        } catch (InputMismatchException e) {
-            tryNumber = userTryNumberInput();
+            String inputCarsStr = RacingCarView.inputCar();
+            return Cars.create(inputCarsStr);
+        } catch (IllegalArgumentException e) {
+            return userCarsInput();
         }
+    }
 
-        return tryNumber;
+    public static int userTryNumberInput() {
+        try {
+            return RacingCarView.inputTryNumber();
+        } catch (InputMismatchException e) {
+            return userTryNumberInput();
+        }
     }
 }

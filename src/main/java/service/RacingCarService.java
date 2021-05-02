@@ -1,5 +1,7 @@
 package service;
 
+import domain.Result;
+import domain.User;
 import model.Car;
 import model.Cars;
 import view.RacingCarView;
@@ -11,8 +13,10 @@ public class RacingCarService {
 
     public void start() {
         String inputCarsStr = RacingCarView.inputCar();
-        String[] carNameArr = splitCar(inputCarsStr);
-        Cars cars = new Cars(initCars(carNameArr));
+        String[] carsName = splitCar(inputCarsStr);
+        Cars cars = new Cars(initCars(carsName));
+
+        int tryNumber = User.userTryNumberInput();
     }
 
     private String[] splitCar(String inputCarsStr) {

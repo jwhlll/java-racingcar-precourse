@@ -16,17 +16,16 @@ public class Cars {
     }
 
     public List<Car> getCars() {
-        return cars;
-    }
-
-    public List<String> getWinner() {
-        List<String> winnerCarsName = new ArrayList<>();
-        int maxPositionValue = maxPosition();
-        for(Car car : cars) {
-            addWinnerCarsName(winnerCarsName, maxPositionValue, car);
+            return cars;
         }
 
-        return winnerCarsName;
+    public List<String> getWinner() {
+        List<String> winnerCarNames = new ArrayList<>();
+        int maxPositionValue = maxPosition();
+        for(Car car : cars) {
+            addWinnerCarsName(winnerCarNames, maxPositionValue, car);
+        }
+        return winnerCarNames;
     }
 
     public void run() {
@@ -41,9 +40,9 @@ public class Cars {
         return max;
     }
 
-    private void addWinnerCarsName(List<String> winnerCarsName, int maxPositionValue, Car car) {
-        if(car.getPosition() == maxPositionValue) {
-            winnerCarsName.add(car.getName());
+    private void addWinnerCarsName(List<String> winnerCarNames, int maxPositionValue, Car car) {
+            if(car.getPosition() == maxPositionValue) {
+            winnerCarNames.add(car.getName());
         }
     }
 
@@ -53,11 +52,9 @@ public class Cars {
 
     private static List<Car> initCars(String[] carNameArr) {
         List<Car> cars = new ArrayList<>();
-
         for (String carName : carNameArr) {
             cars.add(new Car(carName));
         }
-
         return cars;
     }
 }

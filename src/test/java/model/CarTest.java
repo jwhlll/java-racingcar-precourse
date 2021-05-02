@@ -21,12 +21,20 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("자동차 이름 5글자 이상 테스트")
-    void  car_name_test() {
-        String carName = "abcdef";
+    @DisplayName("자동차 이름 5글자 이상 에러")
+    void car_name_err() {
+        String carNames = "dddddd";
         assertThatThrownBy(()->{
-            new Car(carName);
+            new Car(carNames);
         }).isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("자동차 이름은 5글자 이하만 가능합니다.");
+    }
+
+    @Test
+    @DisplayName("자동차 이름 테스트")
+    void car_name() {
+        String name = "aaa";
+        Car car = new Car(name);
+        assertThat(car.getName()).isEqualTo(name);
     }
 }

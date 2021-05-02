@@ -1,22 +1,20 @@
 package service;
 
-import domain.Result;
 import domain.User;
-import model.Car;
 import model.Cars;
 import view.RacingCarView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class RacingCarService {
 
     public void start() {
-        String inputCarsStr = RacingCarView.inputCar();
-        Cars cars = Cars.create(inputCarsStr);
-
+        Cars cars = User.userCarsInput();
         int tryNumber = User.userTryNumberInput();
-        Result.process(tryNumber, cars);
-        Result.complete(cars);
+
+        RacingCarView.outputProcessResult();
+        for(int i=0; i<tryNumber; i++) {
+            cars.run();
+            RacingCarView.outputResult(cars);
+        }
+        RacingCarView.outputWinner(cars.getWinner());
     }
 }

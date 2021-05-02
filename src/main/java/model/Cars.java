@@ -16,8 +16,8 @@ public class Cars {
     }
 
     public List<Car> getCars() {
-            return cars;
-        }
+        return cars;
+    }
 
     public List<String> getWinner() {
         List<String> winnerCarNames = new ArrayList<>();
@@ -41,7 +41,7 @@ public class Cars {
     }
 
     private void addWinnerCarsName(List<String> winnerCarNames, int maxPositionValue, Car car) {
-            if(car.getPosition() == maxPositionValue) {
+        if(car.getPosition() == maxPositionValue) {
             winnerCarNames.add(car.getName());
         }
     }

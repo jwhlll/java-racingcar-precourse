@@ -13,4 +13,8 @@ public class Result {
             RacingCarView.outputResult(cars);
         }
     }
+
+    public static void complete(Cars cars) {
+        RacingCarView.outputWinner(cars.getWinner());
+    }
 }

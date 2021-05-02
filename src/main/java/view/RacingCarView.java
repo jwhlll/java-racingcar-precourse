@@ -3,6 +3,7 @@ package view;
 import model.Car;
 import model.Cars;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class RacingCarView {
@@ -19,11 +20,17 @@ public class RacingCarView {
         return sc.nextInt();
     }
 
+    public static void outputProcessResult() {
+        System.out.println("실행 결과");
+    }
+
     public static void outputResult(Cars cars) {
         for(Car car: cars.getCars()) {
-            System.out.print(car.getName() + ": ");
+            System.out.print(car.getName() + ":");
             changePositionToBarView(car.getPosition());
+            System.out.println();
         }
+        System.out.println();
     }
 
     private static void changePositionToBarView(int cnt) {

@@ -17,6 +17,7 @@ public class RacingCarService {
         Cars cars = new Cars(initCars(carsName));
 
         int tryNumber = User.userTryNumberInput();
+        Result.process(tryNumber, cars);
     }
 
     private String[] splitCar(String inputCarsStr) {

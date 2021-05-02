@@ -10,6 +10,11 @@ public class Cars {
         this.cars = cars;
     }
 
+    public static Cars create(String inputCarsStr) {
+        String[] carsArr = splitCars(inputCarsStr);
+        return new Cars(initCars(carsArr));
+    }
+
     public List<Car> getCars() {
         return cars;
     }
@@ -40,5 +45,19 @@ public class Cars {
         if(car.getPosition() == maxPositionValue) {
             winnerCarsName.add(car.getName());
         }
+    }
+
+    private static String[] splitCars(String inputCarsStr) {
+        return inputCarsStr.split(",");
+    }
+
+    private static List<Car> initCars(String[] carNameArr) {
+        List<Car> cars = new ArrayList<>();
+
+        for (String carName : carNameArr) {
+            cars.add(new Car(carName));
+        }
+
+        return cars;
     }
 }

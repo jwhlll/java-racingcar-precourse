@@ -13,25 +13,10 @@ public class RacingCarService {
 
     public void start() {
         String inputCarsStr = RacingCarView.inputCar();
-        String[] carsName = splitCar(inputCarsStr);
-        Cars cars = new Cars(initCars(carsName));
+        Cars cars = Cars.create(inputCarsStr);
 
         int tryNumber = User.userTryNumberInput();
         Result.process(tryNumber, cars);
         Result.complete(cars);
-    }
-
-    private String[] splitCar(String inputCarsStr) {
-        return inputCarsStr.split(",");
-    }
-
-    private List<Car> initCars(String[] carNameArr) {
-        List<Car> cars = new ArrayList<>();
-
-        for (String carName : carNameArr) {
-            cars.add(new Car(carName));
-        }
-
-        return cars;
     }
 }

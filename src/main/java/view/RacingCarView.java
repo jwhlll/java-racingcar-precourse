@@ -33,6 +33,10 @@ public class RacingCarView {
         System.out.println();
     }
 
+    public static void outputWinner(List<String> carsName) {
+        System.out.println(String.join(",", carsName) + "가 최종 우승했습니다.");
+    }
+
     private static void changePositionToBarView(int cnt) {
         for(int i=0; i<cnt; i++) {
             System.out.print("-");

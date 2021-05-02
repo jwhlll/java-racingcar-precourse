@@ -24,6 +24,10 @@ public class Cars {
         return winnerCarsName;
     }
 
+    public void run() {
+        cars.forEach(Car::run);
+    }
+
     private int maxPosition() {
         int max = 0;
         for(Car car : cars) {
